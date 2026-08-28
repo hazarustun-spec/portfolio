@@ -1,0 +1,348 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hazar Üstün — Portfolio</title>
+<meta name="description" content="Twelve consumer apps and web tools in a year. AI products, iOS, automation and the pipelines behind them.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#fcfcfb;
+    --ink:#111110;
+    --ink-2:#3d3d38;
+    --mute:#6b6b66;
+    --mute-2:#8a8a83;
+    --mute-3:#a3a39b;
+    --rule:#e2e2dd;
+    --tile:#f1f1ec;
+    --hatch:#e6e6df;
+    --max:1240px;
+  }
+
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;background:var(--paper)}
+  body{
+    color:var(--ink);
+    font-family:Archivo,Helvetica,Arial,sans-serif;
+    -webkit-font-smoothing:antialiased;
+    font-size:16px;
+  }
+  a{color:var(--ink);text-decoration:none}
+  img{max-width:100%;display:block}
+  :focus-visible{outline:2px solid var(--ink);outline-offset:3px}
+
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 48px}
+  .mono{font-family:'IBM Plex Mono',ui-monospace,monospace}
+  .eyebrow{
+    font-family:'IBM Plex Mono',ui-monospace,monospace;
+    font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute-2);
+  }
+
+  @keyframes riseIn{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+  @media (prefers-reduced-motion:reduce){
+    *{animation:none!important;transition:none!important}
+  }
+
+  /* ── header ─────────────────────────── */
+  header.site{
+    display:flex;align-items:center;justify-content:space-between;gap:32px;padding:34px 0 0;
+  }
+  .brand{font-size:15px;letter-spacing:-.01em;font-weight:500}
+  nav.main{display:flex;align-items:center;gap:28px}
+  nav.main a{font-size:15px;color:var(--mute);transition:color .2s}
+  nav.main a:hover{color:var(--ink)}
+  nav.main a.here{color:var(--ink);border-bottom:1.5px solid var(--ink);padding-bottom:1px}
+  .socials{display:flex;gap:8px;margin-left:8px}
+  .socials a{
+    width:30px;height:30px;border-radius:50%;background:var(--ink);color:var(--paper);
+    display:flex;align-items:center;justify-content:center;
+    font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.02em;
+    transition:background .2s;
+  }
+  .socials a:hover{background:#3d3d38;color:var(--paper)}
+
+  /* ── hero ───────────────────────────── */
+  .hero{padding:64px 0 22px}
+  .hero h1{
+    margin:0;font-size:132px;line-height:.88;letter-spacing:-.05em;font-weight:700;
+    max-width:16ch;text-wrap:balance;
+  }
+  .hero-foot{
+    display:flex;align-items:flex-end;justify-content:space-between;gap:40px;flex-wrap:wrap;margin-top:34px;
+  }
+  .hero-foot p{margin:0;font-size:22px;line-height:1.28;letter-spacing:-.01em}
+  .pill{
+    display:inline-flex;align-items:center;gap:10px;
+    border:1.5px solid var(--ink);border-radius:999px;padding:13px 30px;
+    font-size:14px;font-weight:500;transition:background .25s ease,color .25s ease;
+  }
+  .pill:hover{background:var(--ink);color:var(--paper)}
+
+  /* ── section head ───────────────────── */
+  .sec-head{
+    display:flex;align-items:baseline;justify-content:space-between;gap:20px;
+    border-top:1px solid var(--rule);padding-top:16px;margin-bottom:34px;
+  }
+
+  /* ── work grid ──────────────────────── */
+  .grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:52px 34px}
+  .card{display:block;animation:riseIn .6s cubic-bezier(.2,.7,.2,1) both}
+  .thumb{position:relative;overflow:hidden;background:var(--tile);aspect-ratio:1/.92}
+  .thumb .fill{
+    position:absolute;inset:0;
+    background-image:repeating-linear-gradient(135deg,var(--hatch) 0 1px,transparent 1px 9px);
+    transition:transform .7s cubic-bezier(.2,.7,.2,1);
+  }
+  .thumb img.fill{
+    background-image:none;object-fit:cover;width:100%;height:100%;
+  }
+  .card:hover .fill{transform:scale(1.06)}
+  .slot{
+    position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+    padding:20px;text-align:center;pointer-events:none;
+    font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.06em;
+    color:var(--mute-2);line-height:1.6;
+  }
+  .cap{
+    position:absolute;left:0;right:0;bottom:0;padding:14px 16px;
+    background:var(--ink);color:var(--paper);
+    display:flex;align-items:center;justify-content:space-between;gap:12px;
+    pointer-events:none;transform:translateY(101%);
+    transition:transform .38s cubic-bezier(.2,.7,.2,1);
+  }
+  .card:hover .cap{transform:translateY(0)}
+  .cap .t{font-size:14px;font-weight:500;letter-spacing:-.01em}
+  .cap .y{font-family:'IBM Plex Mono',monospace;font-size:11px;color:#a5a59d}
+  .meta{
+    margin-top:14px;display:flex;align-items:baseline;justify-content:space-between;gap:12px;
+  }
+  .meta .c{font-size:15px;letter-spacing:-.01em}
+  .meta .n{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--mute-3)}
+  .tag{
+    font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.08em;
+    text-transform:uppercase;color:var(--mute-2);
+    border:1px solid var(--rule);border-radius:999px;padding:3px 9px;white-space:nowrap;
+  }
+  .tag.live{color:var(--ink);border-color:var(--ink)}
+
+  /* ── writing ────────────────────────── */
+  .pieces{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 52px}
+  .piece{
+    display:flex;align-items:baseline;justify-content:space-between;gap:20px;
+    padding:18px 0;border-bottom:1px solid var(--rule);transition:padding-left .25s ease;
+  }
+  .piece:hover{padding-left:8px}
+  .piece .h{font-size:16px;letter-spacing:-.01em;line-height:1.35}
+  .piece .s{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--mute-3);white-space:nowrap}
+
+  /* ── about ──────────────────────────── */
+  .about{
+    display:grid;grid-template-columns:1fr 1fr;gap:34px;
+    padding:110px 0 0;border-top:1px solid var(--rule);margin-top:96px;
+  }
+  .about h2{
+    margin:0;font-size:52px;line-height:.95;letter-spacing:-.04em;font-weight:700;padding-top:22px;
+  }
+  .about .body{padding-top:26px;max-width:50ch}
+  .about .body p{margin:0 0 18px;font-size:17px;line-height:1.5;color:var(--ink-2)}
+  .cols{
+    display:grid;grid-template-columns:1fr 1fr;gap:20px 34px;
+    border-top:1px solid var(--rule);padding-top:20px;margin-top:12px;
+  }
+  .cols .lab{
+    font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.12em;
+    text-transform:uppercase;color:var(--mute-2);margin-bottom:8px;
+  }
+  .cols .val{font-size:15px;line-height:1.5}
+
+  /* ── contact ────────────────────────── */
+  .contact{padding:110px 0 64px;margin-top:96px;border-top:1px solid var(--rule)}
+  .contact-in{
+    display:flex;align-items:flex-end;justify-content:space-between;gap:40px;flex-wrap:wrap;padding-top:26px;
+  }
+  .mail{
+    font-size:64px;line-height:.95;letter-spacing:-.04em;font-weight:700;
+    border-bottom:3px solid var(--ink);word-break:break-word;
+  }
+  .colophon{
+    font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--mute-2);
+    line-height:1.8;text-align:right;
+  }
+
+  /* ── responsive ─────────────────────── */
+  @media (max-width:1040px){
+    .hero h1{font-size:96px}
+    .grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  }
+  @media (max-width:860px){
+    .wrap{padding:0 28px}
+    nav.main a:not(.here){display:none}
+    .about{grid-template-columns:1fr;gap:8px;padding-top:64px;margin-top:64px}
+    .about h2{font-size:38px}
+    .contact{padding-top:64px;margin-top:64px}
+    .mail{font-size:38px}
+    .colophon{text-align:left}
+    .pieces{grid-template-columns:1fr}
+  }
+  @media (max-width:620px){
+    .hero{padding-top:44px}
+    .hero h1{font-size:58px;letter-spacing:-.035em}
+    .hero-foot p{font-size:18px}
+    .grid{grid-template-columns:1fr;gap:38px}
+    .cols{grid-template-columns:1fr}
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <header class="site">
+    <a class="brand" href="#top">Hazar Üstün</a>
+    <nav class="main">
+      <a href="#work" class="here">work</a>
+      <a href="#writing">writing</a>
+      <a href="#about">about</a>
+      <a href="#contact">contact</a>
+      <div class="socials">
+        <a href="https://www.instagram.com/hazarvstvn/" target="_blank" rel="noopener" title="Instagram">Ig</a>
+        <a href="https://github.com/hazarustun-spec" target="_blank" rel="noopener" title="GitHub">Gh</a>
+      </div>
+    </nav>
+  </header>
+
+  <section id="top" class="hero">
+    <h1>I ship products.</h1>
+    <div class="hero-foot">
+      <p>Twelve consumer apps and web tools in a year.<br>One in App Store review, two in TestFlight, one live.</p>
+      <a class="pill" href="#contact">Get in touch</a>
+    </div>
+  </section>
+
+  <section id="work">
+    <div class="sec-head">
+      <span class="eyebrow">Selected work</span>
+      <span class="eyebrow" id="count"></span>
+    </div>
+    <div class="grid" id="grid"></div>
+  </section>
+
+  <section id="writing" style="padding-top:96px">
+    <div class="sec-head">
+      <span class="eyebrow">Writing</span>
+      <span class="eyebrow">Bigumigu — 2022</span>
+    </div>
+    <div class="pieces">
+      <a class="piece" href="https://bigumigu.com/haber/burger-king-burger-glitch-2-kategoride-altin-aslan-kazandi-cannes-lions-2022/" target="_blank" rel="noopener">
+        <span class="h">Burger King's “Burger Glitch” takes two Gold Lions</span>
+        <span class="s">Cannes Lions</span>
+      </a>
+      <a class="piece" href="https://bigumigu.com/haber/starbucks-la-kalplere-dokunan-bir-kahve-molasi/" target="_blank" rel="noopener">
+        <span class="h">Starbucks turns a museum into personal exhibits</span>
+        <span class="s">Campaign</span>
+      </a>
+      <a class="piece" href="https://bigumigu.com/haber/trafikte-gordugunuz-otomobil-hacklenmis-olabilir-mi/" target="_blank" rel="noopener">
+        <span class="h">Could the car you just passed have been hacked?</span>
+        <span class="s">Technology</span>
+      </a>
+      <a class="piece" href="https://bigumigu.com/haber/instagramdan-hassas-icerik-kontrol-sistemine-guncelleme/" target="_blank" rel="noopener">
+        <span class="h">Instagram extends its sensitive content controls</span>
+        <span class="s">Platforms</span>
+      </a>
+    </div>
+  </section>
+
+  <section id="about" class="about">
+    <h2>I write the spec.<br>The build follows.<br>So does the release.</h2>
+
+    <div class="body">
+      <p>A year ago I had never written a line of code. I wanted things to exist, so I learned to specify them precisely enough that an AI coding tool could build them — and to own everything that comes after: the QA gates, the release checks, and the numbers that come back.</p>
+      <p>Twelve products later, the part I'm good at turned out not to be typing. It's knowing what should happen when the caption is empty, when the token expires, when the sample is too small to trust. Around a thousand commits in the past year, across twenty-three repositories.</p>
+      <p>I came to product from marketing and analytics — Aon, Kraft Heinz, Red Bull — and I read a funnel and a release checklist with the same eye. Boğaziçi University, 2027.</p>
+      <div class="cols">
+        <div>
+          <div class="lab">Product</div>
+          <div class="val">Requirements &amp; acceptance criteria<br>Release and QA gates<br>Metrics and thresholds</div>
+        </div>
+        <div>
+          <div class="lab">AI</div>
+          <div class="val">Claude &amp; Gemini APIs<br>Prompt engineering<br>Generative image and video</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <div class="contact-in">
+      <div>
+        <div class="eyebrow" style="margin-bottom:16px">Next project</div>
+        <a class="mail" href="mailto:hazarustun@gmail.com">hazarustun@gmail.com</a>
+      </div>
+      <div class="colophon">Hazar Üstün<br>İstanbul<br>© 2026</div>
+    </div>
+  </section>
+
+</div>
+
+<script>
+/* ─────────────────────────────────────────────────────────────
+   Projects. To add a screenshot: put the file in img/ and set
+   `img`. To make a card clickable: set `url` (TestFlight or
+   App Store). Cards without a url render as plain tiles.
+   ───────────────────────────────────────────────────────────── */
+const PROJECTS = [
+  { title:"Merge Zoo",      category:"Game design and build",   year:"2026", status:"App Store review",
+    slot:"merge zoo — board, mid-run",        img:"", url:"" },
+  { title:"Shimal",         category:"AI product, iOS",         year:"2026", status:"TestFlight",
+    slot:"shimal — daily reading",            img:"", url:"" },
+  { title:"marker.",        category:"AI product, iOS",         year:"2026", status:"",
+    slot:"marker. — morning brief",           img:"", url:"" },
+  { title:"ChallengeBu!",   category:"Product and platform",    year:"2026", status:"TestFlight",
+    slot:"challengebu — ladder",              img:"", url:"" },
+  { title:"pin2insta",      category:"Automation and analytics",year:"2026", status:"",
+    slot:"pin2insta — queue and insights",    img:"", url:"" },
+  { title:"drappin",        category:"Product and backend",     year:"2026", status:"",
+    slot:"drappin — wishlist",                img:"", url:"" },
+  { title:"Antrenman",      category:"Web product",             year:"2026", status:"Live",
+    slot:"antrenman — the week",              img:"", url:"https://antrenman-two.vercel.app" },
+  { title:"Çekim Yasası",   category:"Interaction and sound",   year:"2026", status:"",
+    slot:"çekim yasası — the draw",           img:"", url:"" },
+  { title:"Pasaport",       category:"Product and API",         year:"2026", status:"",
+    slot:"pasaport — a country",              img:"", url:"" }
+];
+
+const grid = document.getElementById("grid");
+const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+
+PROJECTS.forEach((p, i) => {
+  const tag = p.status
+    ? `<span class="tag${p.status === "Live" ? " live" : ""}">${esc(p.status)}</span>`
+    : `<span class="n">${String(i + 1).padStart(2, "0")}</span>`;
+
+  const fill = p.img
+    ? `<img class="fill" src="${esc(p.img)}" alt="${esc(p.title)}" loading="lazy">`
+    : `<div class="fill"></div><span class="slot">${esc(p.slot)}</span>`;
+
+  const inner = `
+    <div class="thumb">
+      ${fill}
+      <div class="cap"><span class="t">${esc(p.title)}</span><span class="y">${esc(p.year)}</span></div>
+    </div>
+    <div class="meta"><span class="c">${esc(p.category)}</span>${tag}</div>`;
+
+  const el = document.createElement(p.url ? "a" : "div");
+  el.className = "card";
+  el.style.animationDelay = (i * 60) + "ms";
+  if (p.url) { el.href = p.url; el.target = "_blank"; el.rel = "noopener"; }
+  el.innerHTML = inner;
+  grid.appendChild(el);
+});
+
+document.getElementById("count").textContent = PROJECTS.length + " projects — 2025–2026";
+</script>
+
+</body>
+</html>
