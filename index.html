@@ -30,6 +30,8 @@
     --web:#00cfff;
     --app:#ffe600;
     --game:#00f57a;
+    --macos:#b026ff;
+    --creator:#ff7a1f;
     --row:clamp(30px,4.8vw,50px);
   }
 
@@ -108,6 +110,8 @@
   .t-web{background:var(--web)}
   .t-app{background:var(--app)}
   .t-game{background:var(--game)}
+  .t-macos{background:var(--macos)}
+  .t-creator{background:var(--creator)}
 
   /* TestFlight */
   .tf{
@@ -265,6 +269,8 @@
       <li><i class="t-web"></i>Web</li>
       <li><i class="t-app"></i>App</li>
       <li><i class="t-game"></i>Game</li>
+      <li><i class="t-macos"></i>macOS</li>
+      <li><i class="t-creator"></i>Creator</li>
     </ul>
   </aside>
 
@@ -289,31 +295,31 @@
    the thumbnail's width relative to its height (0.86em).
    ──────────────────────────────────────────────────────────── */
 const PROJECTS = [
-  { title:"Merge Zoo",           year:"2026", slot:"board",       w:0.46, h:1.5,  img:"img/merge-zoo.jpg",  tags:["ios","game"], tf:"", url:"" },
+  { title:"Merge Zoo",           year:"2026", slot:"board",       w:0.46, h:1.5,  img:"img/merge-zoo.jpg",  tags:["ios","game"], tf:"https://testflight.apple.com/join/JZ6MV3N4", url:"" },
   { title:"marker.",             year:"2026", slot:"brief",       w:0.46, h:1.5,  img:"img/marker.jpg",      tags:["ios","app"], url:"https://github.com/hazarustun-spec/ios_app-marker." },
-  { title:"ChallengeBu!",        year:"2026", slot:"ladder",      w:0.46, h:1.5,  img:"img/challengebu.jpg", tags:["ios","app"], tf:"", url:"https://github.com/hazarustun-spec/ios_app-challengebu" },
+  { title:"ChallengeBu!",        year:"2026", slot:"ladder",      w:0.46, h:1.5,  img:"img/challengebu.jpg", tags:["ios","app"], tf:"https://testflight.apple.com/join/5rpkbAuv", url:"https://github.com/hazarustun-spec/ios_app-challengebu" },
   { title:"pin2insta",           year:"2026", slot:"queue",       w:1.60, h:1.5,  img:"", tags:["web","app"], url:"https://github.com/hazarustun-spec/web_app-pin2insta" },
   { title:"drappin",             year:"2026", slot:"wishlist",    w:0.46, h:1.5,  img:"img/drappin.jpg",     tags:["ios","app"], url:"" },
   { title:"Çekim Yasası",        year:"2026", slot:"the draw",    w:0.46, h:1.5,  img:"", tags:["ios","app"], url:"" },
   { title:"getmeto",             year:"2026", slot:"the way",     w:0.46, h:1.5,  img:"", tags:["ios","app"], url:"" },
   { title:"Kütüphane",           year:"2026", slot:"the shelf",   w:0.46, h:1.5,  img:"", tags:["ios","app"], url:"" },
-  { title:"Pano Yöneticisi",     year:"2026", slot:"clipboard",   w:1.50, h:1.5,  img:"", tags:["app"], url:"" },
-  { title:"notpaddy",            year:"2026", slot:"the editor",  w:1.50, h:1.5,  img:"", tags:["app"], url:"" },
+  { title:"Pano Yöneticisi",     year:"2026", slot:"clipboard",   w:1.50, h:1.5,  img:"", tags:["macos","app"], url:"" },
+  { title:"notpaddy",            year:"2026", slot:"the editor",  w:1.50, h:1.5,  img:"", tags:["macos","app"], url:"" },
   { title:"bogazicimag desk",    year:"2026", slot:"the desk",    w:1.60, h:1.5,  img:"", tags:["web","app"], url:"" },
   { title:"Continental Archive", year:"2026", slot:"the queue",   w:1.60, h:1.5,  img:"", tags:["web","app"], url:"" },
 
-  { title:"Shimal",              year:"2025", slot:"reading",     w:0.46, h:1.5,  img:"img/shimal.jpg", tags:["ios","app"], tf:"", url:"" },
+  { title:"Shimal",              year:"2025", slot:"reading",     w:0.46, h:1.5,  img:"img/shimal.jpg", tags:["ios","app"], tf:"https://testflight.apple.com/join/RVrDVrqG", url:"" },
   { title:"ShoText",             year:"2025", slot:"a message",   w:0.46, h:1.5,  img:"", tags:["ios","app"], url:"" },
   { title:"shimal.app",          year:"2025", slot:"the studio",  w:1.60, h:1.5,  img:"", tags:["web"], url:"https://shimal.app" },
   { title:"calvinopaints.com",   year:"2025", slot:"the shop",    w:1.60, h:1.5,  img:"", tags:["web"], url:"https://www.calvinopaints.com/" },
   { title:"mochu.store",         year:"2025", slot:"the shop",    w:1.60, h:1.5,  img:"", tags:["web"], url:"https://www.mochu.store/" },
 
-  { title:"Burger King's Burger Glitch takes two Gold Lions", year:"2022", slot:"bigumigu", w:1.60, h:1.5,  img:"", url:"https://bigumigu.com/haber/burger-king-burger-glitch-2-kategoride-altin-aslan-kazandi-cannes-lions-2022/" },
-  { title:"Starbucks turns a museum into personal exhibits",  year:"2022", slot:"bigumigu", w:1.60, h:1.5,  img:"", url:"https://bigumigu.com/haber/starbucks-la-kalplere-dokunan-bir-kahve-molasi/" },
-  { title:"Could the car you just passed have been hacked?",  year:"2022", slot:"bigumigu", w:1.60, h:1.5,  img:"", url:"https://bigumigu.com/haber/trafikte-gordugunuz-otomobil-hacklenmis-olabilir-mi/" },
-  { title:"Instagram extends its sensitive content controls", year:"2022", slot:"bigumigu", w:1.60, h:1.5,  img:"", url:"https://bigumigu.com/haber/instagramdan-hassas-icerik-kontrol-sistemine-guncelleme/" },
+  { title:"Burger King's Burger Glitch takes two Gold Lions", year:"2022", slot:"bigumigu", w:1.60, h:1.5,  img:"", tags:["creator"], url:"https://bigumigu.com/haber/burger-king-burger-glitch-2-kategoride-altin-aslan-kazandi-cannes-lions-2022/" },
+  { title:"Starbucks turns a museum into personal exhibits",  year:"2022", slot:"bigumigu", w:1.60, h:1.5,  img:"", tags:["creator"], url:"https://bigumigu.com/haber/starbucks-la-kalplere-dokunan-bir-kahve-molasi/" },
+  { title:"Could the car you just passed have been hacked?",  year:"2022", slot:"bigumigu", w:1.60, h:1.5,  img:"", tags:["creator"], url:"https://bigumigu.com/haber/trafikte-gordugunuz-otomobil-hacklenmis-olabilir-mi/" },
+  { title:"Instagram extends its sensitive content controls", year:"2022", slot:"bigumigu", w:1.60, h:1.5,  img:"", tags:["creator"], url:"https://bigumigu.com/haber/instagramdan-hassas-icerik-kontrol-sistemine-guncelleme/" },
 
-  { title:"@bogazicimag",        year:"2021", slot:"the magazine",w:1.00, h:1.5,  img:"", url:"https://www.instagram.com/bogazicimag/" },
+  { title:"@bogazicimag",        year:"2021", slot:"the magazine",w:1.00, h:1.5,  img:"", tags:["creator"], url:"https://www.instagram.com/bogazicimag/" },
   { title:"hazarustun.com",      year:"2019", slot:"the writing", w:1.60, h:1.5,  img:"", tags:["web"], url:"https://hazarustun.com" },
   { title:"hazarca.tr.gg",       year:"2009", slot:"age nine",    w:1.60, h:1.5,  img:"", tags:["web"], url:"https://hazarca.tr.gg" }
 ];
