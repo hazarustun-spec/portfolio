@@ -26,6 +26,10 @@
     --hatch:#dbdbd5;
     --slot:#8f8f88;
     --dot:18px;
+    --ios:#ff2e9f;
+    --web:#00cfff;
+    --app:#ffe600;
+    --game:#00f57a;
     --row:clamp(30px,4.8vw,50px);
   }
 
@@ -85,6 +89,73 @@
   .row:hover{color:var(--accent)}
 
   .row .t{white-space:normal}
+
+  /* category dots, left of the title */
+  .tags{
+    flex:0 0 auto;
+    display:flex;
+    align-items:center;
+    gap:0.07em;
+    margin-right:0.16em;
+  }
+  .tags i{
+    width:0.17em;height:0.17em;
+    border-radius:50%;
+    display:block;
+    box-shadow:inset 0 0 0 1px rgba(0,0,0,.09);
+  }
+  .t-ios{background:var(--ios)}
+  .t-web{background:var(--web)}
+  .t-app{background:var(--app)}
+  .t-game{background:var(--game)}
+
+  /* TestFlight */
+  .tf{
+    font-family:Helvetica,'Helvetica Neue',Arial,sans-serif;
+    font-size:0.24em;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    color:var(--mute,#6b6b66);
+    padding-left:0.9em;
+    white-space:nowrap;
+    border-bottom:1px solid #d6d6cf;
+    cursor:inherit;
+  }
+  .tf:hover{color:var(--ink);border-bottom-color:var(--ink)}
+
+  /* the key, pinned to the right edge */
+  .key{
+    position:fixed;
+    right:clamp(14px,2.6vw,30px);
+    top:50%;
+    transform:translateY(-50%);
+    z-index:40;
+    font-family:Helvetica,'Helvetica Neue',Arial,sans-serif;
+    pointer-events:none;
+  }
+  .key h2{
+    margin:0 0 12px;
+    font:inherit;
+    font-size:11px;
+    font-weight:400;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:#a3a39b;
+  }
+  .key ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:10px}
+  .key li{display:flex;align-items:center;gap:9px;font-size:12px;color:#6b6b66}
+  .key i{
+    width:12px;height:12px;border-radius:50%;display:block;
+    box-shadow:inset 0 0 0 1px rgba(0,0,0,.09);
+  }
+
+  @media (max-width:1080px){
+    .key{
+      position:static;transform:none;
+      margin:0 0 clamp(24px,4vw,40px);
+    }
+    .key ul{flex-direction:row;flex-wrap:wrap;gap:8px 20px}
+  }
 
   .thumb{
     position:relative;
@@ -187,6 +258,16 @@
 
   <a class="mast" id="mast" href="#index">hazarustun-spec.github.io/portfolio</a>
 
+  <aside class="key">
+    <h2>Key</h2>
+    <ul>
+      <li><i class="t-ios"></i>iOS</li>
+      <li><i class="t-web"></i>Web</li>
+      <li><i class="t-app"></i>App</li>
+      <li><i class="t-game"></i>Game</li>
+    </ul>
+  </aside>
+
   <div class="index" id="index"></div>
 
   <div class="colophon">
@@ -208,24 +289,24 @@
    the thumbnail's width relative to its height (0.86em).
    ──────────────────────────────────────────────────────────── */
 const PROJECTS = [
-  { title:"Merge Zoo",           year:"2026", slot:"board",       w:0.46, h:1.5,  img:"img/merge-zoo.jpg",  url:"" },
-  { title:"marker.",             year:"2026", slot:"brief",       w:0.46, h:1.5,  img:"img/marker.jpg",      url:"https://github.com/hazarustun-spec/ios_app-marker." },
-  { title:"ChallengeBu!",        year:"2026", slot:"ladder",      w:0.46, h:1.5,  img:"img/challengebu.jpg", url:"https://github.com/hazarustun-spec/ios_app-challengebu" },
-  { title:"pin2insta",           year:"2026", slot:"queue",       w:1.60, h:1.5,  img:"", url:"https://github.com/hazarustun-spec/web_app-pin2insta" },
-  { title:"drappin",             year:"2026", slot:"wishlist",    w:0.46, h:1.5,  img:"img/drappin.jpg",     url:"" },
-  { title:"Çekim Yasası",        year:"2026", slot:"the draw",    w:0.46, h:1.5,  img:"", url:"" },
-  { title:"getmeto",             year:"2026", slot:"the way",     w:0.46, h:1.5,  img:"", url:"" },
-  { title:"Kütüphane",           year:"2026", slot:"the shelf",   w:0.46, h:1.5,  img:"", url:"" },
-  { title:"Pano Yöneticisi",     year:"2026", slot:"clipboard",   w:1.50, h:1.5,  img:"", url:"" },
-  { title:"notpaddy",            year:"2026", slot:"the editor",  w:1.50, h:1.5,  img:"", url:"" },
-  { title:"bogazicimag desk",    year:"2026", slot:"the desk",    w:1.60, h:1.5,  img:"", url:"" },
-  { title:"Continental Archive", year:"2026", slot:"the queue",   w:1.60, h:1.5,  img:"", url:"" },
+  { title:"Merge Zoo",           year:"2026", slot:"board",       w:0.46, h:1.5,  img:"img/merge-zoo.jpg",  tags:["ios","game"], tf:"", url:"" },
+  { title:"marker.",             year:"2026", slot:"brief",       w:0.46, h:1.5,  img:"img/marker.jpg",      tags:["ios","app"], url:"https://github.com/hazarustun-spec/ios_app-marker." },
+  { title:"ChallengeBu!",        year:"2026", slot:"ladder",      w:0.46, h:1.5,  img:"img/challengebu.jpg", tags:["ios","app"], tf:"", url:"https://github.com/hazarustun-spec/ios_app-challengebu" },
+  { title:"pin2insta",           year:"2026", slot:"queue",       w:1.60, h:1.5,  img:"", tags:["web","app"], url:"https://github.com/hazarustun-spec/web_app-pin2insta" },
+  { title:"drappin",             year:"2026", slot:"wishlist",    w:0.46, h:1.5,  img:"img/drappin.jpg",     tags:["ios","app"], url:"" },
+  { title:"Çekim Yasası",        year:"2026", slot:"the draw",    w:0.46, h:1.5,  img:"", tags:["ios","app"], url:"" },
+  { title:"getmeto",             year:"2026", slot:"the way",     w:0.46, h:1.5,  img:"", tags:["ios","app"], url:"" },
+  { title:"Kütüphane",           year:"2026", slot:"the shelf",   w:0.46, h:1.5,  img:"", tags:["ios","app"], url:"" },
+  { title:"Pano Yöneticisi",     year:"2026", slot:"clipboard",   w:1.50, h:1.5,  img:"", tags:["app"], url:"" },
+  { title:"notpaddy",            year:"2026", slot:"the editor",  w:1.50, h:1.5,  img:"", tags:["app"], url:"" },
+  { title:"bogazicimag desk",    year:"2026", slot:"the desk",    w:1.60, h:1.5,  img:"", tags:["web","app"], url:"" },
+  { title:"Continental Archive", year:"2026", slot:"the queue",   w:1.60, h:1.5,  img:"", tags:["web","app"], url:"" },
 
-  { title:"Shimal",              year:"2025", slot:"reading",     w:0.46, h:1.5,  img:"img/shimal.jpg", url:"" },
-  { title:"ShoText",             year:"2025", slot:"a message",   w:0.46, h:1.5,  img:"", url:"" },
-  { title:"shimal.app",          year:"2025", slot:"the studio",  w:1.60, h:1.5,  img:"", url:"https://shimal.app" },
-  { title:"calvinopaints.com",   year:"2025", slot:"the shop",    w:1.60, h:1.5,  img:"", url:"https://www.calvinopaints.com/" },
-  { title:"mochu.store",         year:"2025", slot:"the shop",    w:1.60, h:1.5,  img:"", url:"https://www.mochu.store/" },
+  { title:"Shimal",              year:"2025", slot:"reading",     w:0.46, h:1.5,  img:"img/shimal.jpg", tags:["ios","app"], tf:"", url:"" },
+  { title:"ShoText",             year:"2025", slot:"a message",   w:0.46, h:1.5,  img:"", tags:["ios","app"], url:"" },
+  { title:"shimal.app",          year:"2025", slot:"the studio",  w:1.60, h:1.5,  img:"", tags:["web"], url:"https://shimal.app" },
+  { title:"calvinopaints.com",   year:"2025", slot:"the shop",    w:1.60, h:1.5,  img:"", tags:["web"], url:"https://www.calvinopaints.com/" },
+  { title:"mochu.store",         year:"2025", slot:"the shop",    w:1.60, h:1.5,  img:"", tags:["web"], url:"https://www.mochu.store/" },
 
   { title:"Burger King's Burger Glitch takes two Gold Lions", year:"2022", slot:"bigumigu", w:1.60, h:1.5,  img:"", url:"https://bigumigu.com/haber/burger-king-burger-glitch-2-kategoride-altin-aslan-kazandi-cannes-lions-2022/" },
   { title:"Starbucks turns a museum into personal exhibits",  year:"2022", slot:"bigumigu", w:1.60, h:1.5,  img:"", url:"https://bigumigu.com/haber/starbucks-la-kalplere-dokunan-bir-kahve-molasi/" },
@@ -233,8 +314,8 @@ const PROJECTS = [
   { title:"Instagram extends its sensitive content controls", year:"2022", slot:"bigumigu", w:1.60, h:1.5,  img:"", url:"https://bigumigu.com/haber/instagramdan-hassas-icerik-kontrol-sistemine-guncelleme/" },
 
   { title:"@bogazicimag",        year:"2021", slot:"the magazine",w:1.00, h:1.5,  img:"", url:"https://www.instagram.com/bogazicimag/" },
-  { title:"hazarustun.com",      year:"2019", slot:"the writing", w:1.60, h:1.5,  img:"", url:"https://hazarustun.com" },
-  { title:"hazarca.tr.gg",       year:"2009", slot:"age nine",    w:1.60, h:1.5,  img:"", url:"https://hazarca.tr.gg" }
+  { title:"hazarustun.com",      year:"2019", slot:"the writing", w:1.60, h:1.5,  img:"", tags:["web"], url:"https://hazarustun.com" },
+  { title:"hazarca.tr.gg",       year:"2009", slot:"age nine",    w:1.60, h:1.5,  img:"", tags:["web"], url:"https://hazarca.tr.gg" }
 ];
 
 const DOT = 18;          // resting cursor size, px
@@ -250,15 +331,20 @@ function rowInner(p){
     ? `<img src="${esc(p.img)}" alt="${esc(p.title)}" loading="lazy">`
     : `<span class="hatch"></span><span class="slot">${esc(p.slot)}</span>`;
   const h = p.h || 0.86;
-  return `<span class="t">${esc(p.title)}</span>`
+  const tags = (p.tags || []).length
+    ? `<span class="tags">` + p.tags.map(t => `<i class="t-${t}"></i>`).join("") + `</span>`
+    : "";
+  return tags
+       + `<span class="t">${esc(p.title)}</span>`
        + `<span class="thumb" style="width:${(p.w * h).toFixed(2)}em;height:${h}em">${fill}</span>`
-       + `<span class="y">${esc(p.year)}</span>`;
+       + `<span class="y">${esc(p.year)}</span>`
+       + (p.tf ? `<a class="tf" href="${esc(p.tf)}" target="_blank" rel="noopener">TestFlight</a>` : "");
 }
 
 PROJECTS.forEach(p => {
-  const el = document.createElement(p.url ? "a" : "div");
+  const el = document.createElement(p.url && !p.tf ? "a" : "div");
   el.className = "row";
-  if (p.url) { el.href = p.url; el.target = "_blank"; el.rel = "noopener"; }
+  if (p.url && !p.tf) { el.href = p.url; el.target = "_blank"; el.rel = "noopener"; }
   el.innerHTML = rowInner(p);
   el.__project = p;
   index.appendChild(el);
