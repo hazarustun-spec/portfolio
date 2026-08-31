@@ -85,6 +85,11 @@
 
   .row .t{white-space:nowrap}
 
+  /* rows with no thumbnail — article titles. Smaller, and they wrap. */
+  .row.txt{font-size:clamp(22px,3.2vw,34px);align-items:baseline;line-height:1.3}
+  .row.txt .t{white-space:normal}
+  .row.txt .y{font-size:0.44em;top:0}
+
   .thumb{
     position:relative;
     flex:0 0 auto;
@@ -153,6 +158,17 @@
   }
   #ov .thumb .slot{color:rgba(255,255,255,.75)}
 
+  /* ── section labels ───────────────────────────────── */
+  .sec{
+    font-family:Helvetica,'Helvetica Neue',Arial,sans-serif;
+    font-size:11px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:#a3a39b;
+    margin:clamp(30px,4vw,52px) 0 clamp(10px,1.2vw,16px);
+  }
+  .sec:first-child{margin-top:0}
+
   /* ── colophon ─────────────────────────────────────── */
   .colophon{
     margin-top:clamp(46px,7vw,86px);
@@ -163,6 +179,18 @@
   .colophon a{border-bottom:1px solid #cfcfc8;cursor:inherit}
   .colophon a:hover{color:var(--ink);border-bottom-color:var(--ink)}
   .colophon .sep{padding:0 .5em;color:#c3c3bc}
+
+  .socials{display:flex;gap:8px;margin-top:18px}
+  .socials a{
+    width:30px;height:30px;border-radius:50%;
+    background:var(--ink);color:var(--paper);
+    display:flex;align-items:center;justify-content:center;
+    font-family:Helvetica,'Helvetica Neue',Arial,sans-serif;
+    font-size:10px;letter-spacing:0.02em;
+    cursor:inherit;border-bottom:0;
+    transition:background .2s ease;
+  }
+  .socials a:hover{background:#3d3d38;color:var(--paper)}
 
   @media (prefers-reduced-motion:reduce){
     *{animation:none!important;transition:none!important}
@@ -177,6 +205,10 @@
 
   <div class="colophon">
     Hazar Üstün — Istanbul.<span class="sep">·</span><a href="https://hazarustun.com" target="_blank" rel="noopener">hazarustun.com</a><span class="sep">·</span><a href="mailto:hazarustun@gmail.com">hazarustun@gmail.com</a><span class="sep">·</span><a href="https://github.com/hazarustun-spec" target="_blank" rel="noopener">GitHub</a>
+    <div class="socials">
+      <a href="https://www.instagram.com/hazarustun/" target="_blank" rel="noopener" title="@hazarustun" aria-label="Instagram: hazarustun">Ig</a>
+      <a href="https://www.instagram.com/hazarvstvn/" target="_blank" rel="noopener" title="@hazarvstvn" aria-label="Instagram: hazarvstvn">Ig</a>
+    </div>
   </div>
 
   <div id="dot"></div>
@@ -184,21 +216,44 @@
 
 <script>
 /* ────────────────────────────────────────────────────────────
-   Projects. `img` — put a file in img/ and set it, the hatch
-   placeholder disappears. `url` — a card with a url becomes a
-   link; without one it renders as plain text. `w` is the
-   thumbnail's width relative to its height (0.86em).
+   The index. Each section is a label plus its rows.
+   `img` — drop a file in img/ and set it, the hatch placeholder
+   disappears. `url` — a row with a url becomes a link; without
+   one it renders as plain text. `w` is the thumbnail's width
+   relative to its height (0.86em).
    ──────────────────────────────────────────────────────────── */
-const PROJECTS = [
-  { title:"Merge Zoo",    year:"2026", slot:"board",     w:0.90, img:"", url:"" },
-  { title:"Shimal",       year:"2026", slot:"reading",   w:0.86, img:"", url:"" },
-  { title:"marker.",      year:"2026", slot:"brief",     w:0.88, img:"", url:"" },
-  { title:"ChallengeBu!", year:"2026", slot:"ladder",    w:1.20, img:"", url:"" },
-  { title:"pin2insta",    year:"2026", slot:"queue",     w:1.55, img:"", url:"" },
-  { title:"drappin",      year:"2026", slot:"wishlist",  w:0.92, img:"", url:"" },
-  { title:"Antrenman",    year:"2026", slot:"the week",  w:1.50, img:"", url:"https://antrenman-two.vercel.app" },
-  { title:"Çekim Yasası", year:"2026", slot:"the draw",  w:1.35, img:"", url:"" },
-  { title:"Pasaport",     year:"2026", slot:"a country", w:0.90, img:"", url:"" }
+const SECTIONS = [
+  { label: "Products", items: [
+    { title:"Merge Zoo",          year:"2026", slot:"board",      w:0.90, img:"", url:"" },
+    { title:"Shimal",             year:"2025", slot:"reading",    w:0.88, img:"", url:"" },
+    { title:"marker.",            year:"2026", slot:"brief",      w:0.88, img:"", url:"https://github.com/hazarustun-spec/ios_app-marker." },
+    { title:"ChallengeBu!",       year:"2026", slot:"ladder",     w:1.15, img:"", url:"https://github.com/hazarustun-spec/ios_app-challengebu" },
+    { title:"pin2insta",          year:"2026", slot:"queue",      w:1.55, img:"", url:"https://github.com/hazarustun-spec/web_app-pin2insta" },
+    { title:"drappin",            year:"2026", slot:"wishlist",   w:0.92, img:"", url:"" },
+    { title:"Antrenman",          year:"2026", slot:"the week",   w:1.50, img:"", url:"https://antrenman-two.vercel.app" },
+    { title:"Çekim Yasası",       year:"2026", slot:"the draw",   w:1.30, img:"", url:"" },
+    { title:"ShoText",            year:"2025", slot:"a message",  w:0.88, img:"", url:"" },
+    { title:"getmeto",            year:"2026", slot:"the way",    w:0.90, img:"", url:"" },
+    { title:"Kütüphane",          year:"2026", slot:"the shelf",  w:0.92, img:"", url:"" },
+    { title:"Pano Yöneticisi",    year:"2026", slot:"clipboard",  w:1.35, img:"", url:"" },
+    { title:"notpaddy",           year:"2026", slot:"the editor", w:1.40, img:"", url:"" },
+    { title:"bogazicimag desk",   year:"2026", slot:"the desk",   w:1.50, img:"", url:"" },
+    { title:"Continental Archive",year:"2026", slot:"the queue",  w:1.55, img:"", url:"" }
+  ]},
+  { label: "Sites", items: [
+    { title:"shimal.app",         year:"2025", slot:"the studio", w:1.55, img:"", url:"https://shimal.app" },
+    { title:"calvinopaints.com",  year:"2025", slot:"the shop",   w:1.50, img:"", url:"https://www.calvinopaints.com/" },
+    { title:"mochu.store",        year:"2025", slot:"the shop",   w:1.50, img:"", url:"https://www.mochu.store/" },
+    { title:"hazarustun.com",     year:"2019", slot:"the writing",w:1.45, img:"", url:"https://hazarustun.com" },
+    { title:"hazarca.tr.gg",      year:"2009", slot:"age nine",   w:1.35, img:"", url:"https://hazarca.tr.gg" }
+  ]},
+  { label: "Writing", items: [
+    { title:"@bogazicimag",       year:"2021", slot:"the magazine", w:1.45, img:"", url:"https://www.instagram.com/bogazicimag/" },
+    { title:"Burger King's Burger Glitch takes two Gold Lions", year:"2022", slot:"", w:0, img:"", url:"https://bigumigu.com/haber/burger-king-burger-glitch-2-kategoride-altin-aslan-kazandi-cannes-lions-2022/" },
+    { title:"Starbucks turns a museum into personal exhibits",  year:"2022", slot:"", w:0, img:"", url:"https://bigumigu.com/haber/starbucks-la-kalplere-dokunan-bir-kahve-molasi/" },
+    { title:"Could the car you just passed have been hacked?",  year:"2022", slot:"", w:0, img:"", url:"https://bigumigu.com/haber/trafikte-gordugunuz-otomobil-hacklenmis-olabilir-mi/" },
+    { title:"Instagram extends its sensitive content controls", year:"2022", slot:"", w:0, img:"", url:"https://bigumigu.com/haber/instagramdan-hassas-icerik-kontrol-sistemine-guncelleme/" }
+  ]}
 ];
 
 const DOT = 18;          // resting cursor size, px
@@ -210,21 +265,32 @@ const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":
 const index = document.getElementById("index");
 
 function rowInner(p){
-  const fill = p.img
-    ? `<img src="${esc(p.img)}" alt="${esc(p.title)}" loading="lazy">`
-    : `<span class="hatch"></span><span class="slot">${esc(p.slot)}</span>`;
+  let thumb = "";
+  if (p.w > 0) {
+    const fill = p.img
+      ? `<img src="${esc(p.img)}" alt="${esc(p.title)}" loading="lazy">`
+      : `<span class="hatch"></span><span class="slot">${esc(p.slot)}</span>`;
+    thumb = `<span class="thumb" style="width:${(p.w * 0.86).toFixed(2)}em">${fill}</span>`;
+  }
   return `<span class="t">${esc(p.title)}</span>`
-       + `<span class="thumb" style="width:${(p.w * 0.86).toFixed(2)}em">${fill}</span>`
+       + thumb
        + `<span class="y">${esc(p.year)}</span>`;
 }
 
-PROJECTS.forEach(p => {
-  const el = document.createElement(p.url ? "a" : "div");
-  el.className = "row";
-  if (p.url) { el.href = p.url; el.target = "_blank"; el.rel = "noopener"; }
-  el.innerHTML = rowInner(p);
-  el.__project = p;
-  index.appendChild(el);
+SECTIONS.forEach(section => {
+  const label = document.createElement("div");
+  label.className = "sec";
+  label.textContent = section.label;
+  index.appendChild(label);
+
+  section.items.forEach(p => {
+    const el = document.createElement(p.url ? "a" : "div");
+    el.className = p.w > 0 ? "row" : "row txt";
+    if (p.url) { el.href = p.url; el.target = "_blank"; el.rel = "noopener"; }
+    el.innerHTML = rowInner(p);
+    el.__project = p;
+    index.appendChild(el);
+  });
 });
 
 /* ── cursor dot and the white copy punched out inside it ── */
