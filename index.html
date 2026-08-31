@@ -32,6 +32,7 @@
     --game:#00f57a;
     --macos:#b026ff;
     --creator:#ff7a1f;
+    --navy:#17307e;
     --row:clamp(30px,4.8vw,50px);
   }
 
@@ -116,16 +117,16 @@
   /* TestFlight */
   .tf{
     font-family:Helvetica,'Helvetica Neue',Arial,sans-serif;
-    font-size:0.24em;
-    letter-spacing:0.06em;
+    font-size:0.32em;
+    letter-spacing:0.05em;
     text-transform:uppercase;
-    color:var(--mute,#6b6b66);
-    padding-left:0.9em;
+    color:var(--navy);
+    padding-left:0.7em;
     white-space:nowrap;
-    border-bottom:1px solid #d6d6cf;
     cursor:inherit;
+    transition:opacity .2s ease;
   }
-  .tf:hover{color:var(--ink);border-bottom-color:var(--ink)}
+  .tf:hover{color:var(--navy);opacity:.6}
 
   /* the key, pinned to the right edge */
   .key{
