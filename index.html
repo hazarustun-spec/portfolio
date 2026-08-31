@@ -32,7 +32,7 @@
     --game:#00f57a;
     --macos:#b026ff;
     --creator:#ff7a1f;
-    --navy:#17307e;
+    --navy:#1f3ce8;
     --row:clamp(30px,4.8vw,50px);
   }
 
@@ -118,6 +118,7 @@
   .tf{
     font-family:Helvetica,'Helvetica Neue',Arial,sans-serif;
     font-size:0.32em;
+    font-weight:700;
     letter-spacing:0.05em;
     text-transform:uppercase;
     color:var(--navy);
@@ -155,6 +156,11 @@
     aspect-ratio:auto;
     width:auto;max-width:100%;max-height:240px;
     margin:0 auto 9px;
+  }
+  #tip .sub{
+    margin:0 0 4px;
+    font-family:Helvetica,'Helvetica Neue',Arial,sans-serif;
+    font-size:12px;font-weight:700;line-height:1.35;color:var(--ink);
   }
   #tip p{
     margin:0;
@@ -359,33 +365,103 @@
    the thumbnail's width relative to its height (0.86em).
    ──────────────────────────────────────────────────────────── */
 const PROJECTS = [
-  { title:"Merge Zoo",           year:"2026", slot:"board",       w:0.46, h:1.5,  img:"img/merge-zoo.jpg",  tags:["ios","game"], tf:"https://testflight.apple.com/join/JZ6MV3N4", note:"Free-to-play merge puzzle for iOS. Ten-tier animal chain, dual currency, in-game store, revives and funnel analytics.", meta:"iOS · Game", shots:["img/merge-zoo-g1.jpg","img/merge-zoo-g2.jpg","img/merge-zoo-g3.jpg","img/merge-zoo-g4.jpg","img/merge-zoo-g5.jpg","img/merge-zoo-g6.jpg","img/merge-zoo-g7.jpg"], url:"" },
-  { title:"marker.",             year:"2026", slot:"brief",       w:0.46, h:1.5,  img:"img/marker.jpg",      tags:["ios","app"], note:"A daily AI news brief. Claude writes ten topics every morning under a hard rule: every item resolves to a real source URL.", meta:"iOS · App", shots:["img/marker-g1.jpg","img/marker-g2.jpg","img/marker-g3.jpg","img/marker-g4.jpg","img/marker-g5.jpg"], url:"https://github.com/hazarustun-spec/ios_app-marker." },
-  { title:"ChallengeBu!",        year:"2026", slot:"ladder",      w:0.46, h:1.5,  img:"img/challengebu.jpg", tags:["ios","app"], tf:"https://testflight.apple.com/join/5rpkbAuv", note:"A tennis ladder. Challenge someone, play a ranked match, climb on your ELO. Seasons end in an eight-player bracket.", meta:"iOS · App", shots:["img/challengebu-g1.jpg","img/challengebu-g2.jpg","img/challengebu-g3.jpg","img/challengebu-g4.jpg"], url:"https://github.com/hazarustun-spec/ios_app-challengebu" },
-  { title:"pin2insta",           year:"2026", slot:"queue",       w:1.60, h:1.5,  img:"", tags:["web","app"], note:"Instagram publishing with a measurement layer. It recommends changing a posting time only past a 15-post, 5-per-slot and 30% threshold — and stays silent below it.", meta:"Web · App", url:"https://github.com/hazarustun-spec/web_app-pin2insta" },
-  { title:"drappin",             year:"2026", slot:"wishlist",    w:0.46, h:1.5,  img:"img/drappin.jpg",     tags:["ios","app"], note:"Turns a Pinterest board into a shopping list: matches pinned items to real products, tracks price, alerts on a drop.", meta:"iOS · App", shots:["img/drappin-g1.jpg","img/drappin-g2.jpg","img/drappin-g3.jpg","img/drappin-g4.jpg","img/drappin-g5.jpg"], url:"" },
-  { title:"Çekim Yasası",        year:"2026", slot:"the draw",    w:0.46, h:1.5,  img:"", tags:["ios","app"], note:"Daily rituals for abundance — a growing cheque, a wish ledger, sleep frequencies. No account, no server: the notebook stays on the phone.", meta:"iOS · App", url:"" },
-  { title:"getmeto",             year:"2026", slot:"the way",     w:0.46, h:1.5,  img:"", tags:["ios","app"], meta:"iOS · App", url:"" },
-  { title:"Kütüphane",           year:"2026", slot:"the shelf",   w:0.46, h:1.5,  img:"", tags:["ios","app"], meta:"iOS · App", url:"" },
-  { title:"Pano Yöneticisi",     year:"2026", slot:"clipboard",   w:1.50, h:1.5,  img:"", tags:["macos","app"], note:"A clipboard manager for macOS.", meta:"macOS · App", url:"" },
-  { title:"notpaddy",            year:"2026", slot:"the editor",  w:1.50, h:1.5,  img:"", tags:["macos","app"], note:"A macOS notes app that gets out of the way. Editor, projects, search, persistence, window and menu each in their own module.", meta:"macOS · App", url:"" },
-  { title:"bogazicimag desk",    year:"2026", slot:"the desk",    w:1.60, h:1.5,  img:"", tags:["web","app"], meta:"Web · App", url:"" },
-  { title:"Continental Archive", year:"2026", slot:"the queue",   w:1.60, h:1.5,  img:"", tags:["web","app"], note:"Instagram automation for the Continental Archive account, built on the Meta Graph API.", meta:"Web · App", url:"" },
+  { title:"Zoo Merge", sub:"Rescue the Animals", year:"2026", slot:"board", w:0.46, h:1.5,
+    img:"img/merge-zoo.jpg", shots:["img/merge-zoo-g1.jpg","img/merge-zoo-g2.jpg","img/merge-zoo-g3.jpg","img/merge-zoo-g4.jpg","img/merge-zoo-g5.jpg","img/merge-zoo-g6.jpg","img/merge-zoo-g7.jpg"],
+    tags:["ios","game"], meta:"iOS · Game", tf:"https://testflight.apple.com/join/JZ6MV3N4", url:"",
+    note:"Free-to-play merge puzzle. Ten-tier animal chain, dual currency, in-game store, revives and funnel analytics." },
 
-  { title:"Shimal",              year:"2025", slot:"reading",     w:0.46, h:1.5,  img:"img/shimal.jpg", tags:["ios","app"], tf:"https://testflight.apple.com/join/RVrDVrqG", note:"Astrology where the astrology is real. Swiss Ephemeris transits are computed, then handed to Gemini for the writing.", meta:"iOS · App", shots:["img/shimal-g1.jpg","img/shimal-g2.jpg","img/shimal-g3.jpg","img/shimal-g4.jpg","img/shimal-g5.jpg","img/shimal-g6.jpg"], url:"" },
-  { title:"ShoText",             year:"2025", slot:"a message",   w:0.46, h:1.5,  img:"", tags:["ios","app"], meta:"iOS · App", url:"" },
-  { title:"shimal.app",          year:"2025", slot:"the studio",  w:1.60, h:1.5,  img:"", tags:["web"], note:"The studio site — every app's product page and legal pages live here, at a stable URL independent of any app deploy.", meta:"Web", url:"https://shimal.app" },
-  { title:"calvinopaints.com",   year:"2025", slot:"the shop",    w:1.60, h:1.5,  img:"", tags:["web"], note:"Freelance site.", meta:"Web", url:"https://www.calvinopaints.com/" },
-  { title:"mochu.store",         year:"2025", slot:"the shop",    w:1.60, h:1.5,  img:"", tags:["web"], note:"Freelance site.", meta:"Web", url:"https://www.mochu.store/" },
+  { title:"marker.", sub:"Günlük yapay zeka haberleri", year:"2026", slot:"brief", w:0.46, h:1.5,
+    img:"img/marker.jpg", shots:["img/marker-g1.jpg","img/marker-g2.jpg","img/marker-g3.jpg","img/marker-g4.jpg","img/marker-g5.jpg"],
+    tags:["ios","app"], meta:"iOS · App", url:"https://github.com/hazarustun-spec/ios_app-marker.",
+    note:"A daily AI news brief. Claude writes ten topics every morning under a hard rule: every item resolves to a real source URL." },
 
-  { title:"Burger King's Burger Glitch takes two Gold Lions", year:"2022", slot:"bigumigu", w:1.60, h:1.5,  img:"", tags:["creator"], meta:"Bigumigu · 2022", url:"https://bigumigu.com/haber/burger-king-burger-glitch-2-kategoride-altin-aslan-kazandi-cannes-lions-2022/" },
-  { title:"Starbucks turns a museum into personal exhibits",  year:"2022", slot:"bigumigu", w:1.60, h:1.5,  img:"", tags:["creator"], meta:"Bigumigu · 2022", url:"https://bigumigu.com/haber/starbucks-la-kalplere-dokunan-bir-kahve-molasi/" },
-  { title:"Could the car you just passed have been hacked?",  year:"2022", slot:"bigumigu", w:1.60, h:1.5,  img:"", tags:["creator"], meta:"Bigumigu · 2022", url:"https://bigumigu.com/haber/trafikte-gordugunuz-otomobil-hacklenmis-olabilir-mi/" },
-  { title:"Instagram extends its sensitive content controls", year:"2022", slot:"bigumigu", w:1.60, h:1.5,  img:"", tags:["creator"], meta:"Bigumigu · 2022", url:"https://bigumigu.com/haber/instagramdan-hassas-icerik-kontrol-sistemine-guncelleme/" },
+  { title:"ChallengeBu!", sub:"Kampüste tenis ligi", year:"2026", slot:"ladder", w:0.46, h:1.5,
+    img:"img/challengebu.jpg", shots:["img/challengebu-g1.jpg","img/challengebu-g2.jpg","img/challengebu-g3.jpg","img/challengebu-g4.jpg"],
+    tags:["ios","app"], meta:"iOS · App", tf:"https://testflight.apple.com/join/5rpkbAuv", url:"https://github.com/hazarustun-spec/ios_app-challengebu",
+    note:"A tennis ladder. Challenge someone, play a ranked match, climb on your ELO. Seasons end in an eight-player bracket." },
 
-  { title:"@bogazicimag",        year:"2021", slot:"the magazine",w:1.00, h:1.5,  img:"", tags:["creator"], note:"A campus magazine I started in my first year at university and still run.", meta:"Creator", url:"https://www.instagram.com/bogazicimag/" },
-  { title:"hazarustun.com",      year:"2019", slot:"the writing", w:1.60, h:1.5,  img:"", tags:["web"], note:"My personal site — writing, stories, photographs.", meta:"Web", url:"https://hazarustun.com" },
-  { title:"hazarca.tr.gg",       year:"2009", slot:"age nine",    w:1.60, h:1.5,  img:"", tags:["web"], note:"My first website. I was nine.", meta:"Web", url:"https://hazarca.tr.gg" }
+  { title:"pin2insta", year:"2026", slot:"queue", w:1.60, h:1.5,
+    img:"", tags:["web","app"], meta:"Web · App", url:"https://github.com/hazarustun-spec/web_app-pin2insta",
+    note:"Instagram publishing with a measurement layer. It recommends changing a posting time only past a 15-post, 5-per-slot and 30% threshold — and stays silent below it." },
+
+  { title:"drappin", sub:"Find clothe links", year:"2026", slot:"wishlist", w:0.46, h:1.5,
+    img:"img/drappin.jpg", shots:["img/drappin-g1.jpg","img/drappin-g2.jpg","img/drappin-g3.jpg","img/drappin-g4.jpg","img/drappin-g5.jpg"],
+    tags:["ios","app"], meta:"iOS · App", url:"",
+    note:"Turns a Pinterest board into a shopping list: matches pinned items to real products, tracks price, alerts on a drop." },
+
+  { title:"Çekim Yasası", sub:"Bolluk", year:"2026", slot:"the draw", w:0.46, h:1.5,
+    img:"", tags:["ios","app"], meta:"iOS · App", url:"",
+    note:"Daily rituals for abundance — a growing cheque, a wish ledger, sleep frequencies. No account, no server: the notebook stays on the phone." },
+
+  { title:"GetmeTo", sub:"30+ ülkeye gitmenin her yolu", year:"2026", slot:"the way", w:0.46, h:1.5,
+    img:"img/getmeto.jpg", shots:["img/getmeto-g1.jpg","img/getmeto-g2.jpg","img/getmeto-g3.jpg","img/getmeto-g4.jpg","img/getmeto-g5.jpg"],
+    tags:["ios","app"], meta:"iOS · App", url:"",
+    note:"Pick your passport and it tells you every visa route from Turkey into thirty-odd countries — and keeps a record of the ones you have been to." },
+
+  { title:"Billie Books", sub:"Kütüphaneni takip et", year:"2026", slot:"the shelf", w:0.46, h:1.5,
+    img:"", tags:["ios","app"], meta:"iOS · App", url:"",
+    note:"Scan a barcode and the ISBN puts the book on your shelf. Which of an author you are missing, what page you are on, who borrowed which book and how long ago, read and unread." },
+
+  { title:"Copy-it", sub:"Sürekli kopyalayıcı", year:"2026", slot:"clipboard", w:1.50, h:1.5,
+    img:"", tags:["macos","app"], meta:"macOS · App", url:"",
+    note:"A clipboard manager for macOS — everything you copy stays within reach." },
+
+  { title:"Notpaddy", sub:"Masaüstünde sabitli notpad", year:"2026", slot:"the editor", w:1.50, h:1.5,
+    img:"", tags:["macos","app"], meta:"macOS · App", url:"",
+    note:"A notepad pinned to the desktop, out of the way. Editor, projects, search, persistence, window and menu each in their own module." },
+
+  { title:"Bogazicimag Desk", year:"2026", slot:"the desk", w:1.60, h:1.5,
+    img:"", tags:["web","app"], meta:"Web · App", url:"",
+    note:"A creative production tracker built for the bogazicimag team alone — what is in progress, who is on it, what ships next." },
+
+  { title:"Shimal", sub:"Günlük kozmik mesajlar", year:"2025", slot:"reading", w:0.46, h:1.5,
+    img:"img/shimal.jpg", shots:["img/shimal-g1.jpg","img/shimal-g2.jpg","img/shimal-g3.jpg","img/shimal-g4.jpg","img/shimal-g5.jpg","img/shimal-g6.jpg"],
+    tags:["ios","app"], meta:"iOS · App", tf:"https://testflight.apple.com/join/RVrDVrqG", url:"",
+    note:"Astrology where the astrology is real. Swiss Ephemeris transits are computed, then handed to Gemini for the writing." },
+
+  { title:"Shotext", sub:"Görüntüden metin aracı", year:"2025", slot:"a message", w:0.46, h:1.5,
+    img:"", tags:["ios","app"], meta:"iOS · App", url:"",
+    note:"Turns the text inside a screenshot into text you can copy — and files what it finds as an IBAN, a phone number or an email." },
+
+  { title:"shimal.app", year:"2025", slot:"the studio", w:1.33, h:1.5,
+    img:"img/site-shimal-app.jpg", tags:["web"], meta:"Web", url:"https://shimal.app",
+    note:"The studio site — every app's product page and legal pages live here, at a stable URL independent of any app deploy." },
+
+  { title:"calvinopaints.com", year:"2025", slot:"the shop", w:1.33, h:1.5,
+    img:"img/site-calvinopaints.jpg", tags:["web"], meta:"Web", url:"https://www.calvinopaints.com/",
+    note:"Freelance site." },
+
+  { title:"mochu.store", year:"2025", slot:"the shop", w:1.33, h:1.5,
+    img:"img/site-mochu.jpg", tags:["web"], meta:"Web", url:"https://www.mochu.store/",
+    note:"Freelance site." },
+
+  { title:"Burger King's Burger Glitch takes two Gold Lions", year:"2022", slot:"bigumigu", w:1.60, h:1.5,
+    img:"", tags:["creator"], meta:"Bigumigu · 2022", url:"https://bigumigu.com/haber/burger-king-burger-glitch-2-kategoride-altin-aslan-kazandi-cannes-lions-2022/",
+    note:"Cannes Lions coverage for Bigumigu." },
+
+  { title:"Starbucks turns a museum into personal exhibits", year:"2022", slot:"bigumigu", w:1.60, h:1.5,
+    img:"", tags:["creator"], meta:"Bigumigu · 2022", url:"https://bigumigu.com/haber/starbucks-la-kalplere-dokunan-bir-kahve-molasi/",
+    note:"Campaign coverage for Bigumigu." },
+
+  { title:"Could the car you just passed have been hacked?", year:"2022", slot:"bigumigu", w:1.60, h:1.5,
+    img:"", tags:["creator"], meta:"Bigumigu · 2022", url:"https://bigumigu.com/haber/trafikte-gordugunuz-otomobil-hacklenmis-olabilir-mi/",
+    note:"Technology piece for Bigumigu." },
+
+  { title:"Instagram extends its sensitive content controls", year:"2022", slot:"bigumigu", w:1.60, h:1.5,
+    img:"", tags:["creator"], meta:"Bigumigu · 2022", url:"https://bigumigu.com/haber/instagramdan-hassas-icerik-kontrol-sistemine-guncelleme/",
+    note:"Platform piece for Bigumigu." },
+
+  { title:"@bogazicimag", year:"2021", slot:"the magazine", w:1.00, h:1.5,
+    img:"", tags:["creator"], meta:"Creator", url:"https://www.instagram.com/bogazicimag/",
+    note:"A campus magazine I started in my first year at university and still run." },
+
+  { title:"hazarustun.com", year:"2019", slot:"the writing", w:1.33, h:1.5,
+    img:"img/site-hazarustun-com.jpg", tags:["web"], meta:"Web", url:"https://hazarustun.com",
+    note:"My personal site — writing, stories, photographs." },
+
+  { title:"hazarca.tr.gg", year:"2009", slot:"age nine", w:1.33, h:1.5,
+    img:"", tags:["web"], meta:"Web", url:"https://hazarca.tr.gg",
+    note:"My first website. I was nine." }
 ];
 
 const DOT = 18;          // resting cursor size, px
@@ -461,7 +537,8 @@ function showTip(p){
     ? `<img class="pic" src="${esc(p.img)}" alt="">`
     : `<span class="pic"></span>`;
   tip.innerHTML = pic
-    + `<p>${esc(p.note || "Bir cümle yazılacak.")}</p>`
+    + (p.sub ? `<div class="sub">${esc(p.sub)}</div>` : "")
+    + `<p>${esc(p.note || "—")}</p>`
     + (p.meta ? `<div class="meta">${esc(p.meta)}</div>` : "");
   moveTip(true);
   tip.classList.add("on");
